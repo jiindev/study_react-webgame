@@ -1,12 +1,12 @@
 const React = require('react');
-const {Component,Fragment} = React;
+const {useState, useRef, Component,Fragment} = React;
 
 const Gugudan = () => {
-    const [firstNum, setFirstNum] = React.useState(Math.ceil(Math.random() * 9));
-    const [secondNum, setSecondNum] = React.useState(Math.ceil(Math.random() * 9));
-    const [answer, setAnswer] = React.useState('');
-    const [result, setResult] = React.useState('');
-    const inputRef = React.useRef(null);
+    const [firstNum, setFirstNum] = useState(Math.ceil(Math.random() * 9));
+    const [secondNum, setSecondNum] = useState(Math.ceil(Math.random() * 9));
+    const [answer, setAnswer] = useState('');
+    const [result, setResult] = useState('');
+    const inputRef = useRef(null);
     
   
     const Typing=(e)=>{
@@ -28,12 +28,12 @@ const Gugudan = () => {
   
   
     return (
-        <Fragment>
+        <>
            <p>{firstNum}곱하기{secondNum}는?</p>
            <input onChange={Typing} value={answer} ref={inputRef} type="number"/>
            <button onClick={ButtonClick}>입력!</button>
             <p>{result}</p>
-        </Fragment>
+        </>
       );
   }
 
