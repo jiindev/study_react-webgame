@@ -6,7 +6,7 @@ module.exports={
     mode:'development',
     devtool:'eval',
     resolve:{
-        extensions:['.js','jsx']
+        extensions:['.js','.jsx']
     },
     entry:{
         app:['./client'],
@@ -14,15 +14,15 @@ module.exports={
     module:{
         rules:[{
             test:/\.jsx?/,
-            loader:'babel-loader',
+            loader: 'babel-loader',
             options:{
                 presets:[['@babel/preset-env',{
                     targets:{
-                        browsers:['> 5% in KR'],
+                        browsers: ['> 5% in KR'], //browserslist
                     },
-                    debug:true
+                    debug: true
                 }],'@babel/preset-react'],
-                plugins:['@babel/plugin-proposal-class-properties']
+                plugins:['@babel/plugin-proposal-class-properties','react-hot-loader/babel']
             }
         }]
     },
